@@ -13,28 +13,36 @@
         - grpcio
       state: present
 
-  - name: Add Helm repo
-    shell: helm repo add stable https://kubernetes-charts.storage.googleapis.com/
+  - name: Install PHP App Guestbook
+    shell: kubectl apply -f https://raw.githubusercontent.com/flyer8/exness/master/guestbook/guestbook-all-in-one.yaml
 
-  # - name: Set permissions for  KUBECONFIG
-  #   shell: sudo chown $USER:$USER /etc/rancher/k3s/k3s.yaml
+  - name: Clone repo exness
+    shell: |
+      rm -rf ~/exness || true
+      git clone https://github.com/flyer8/exness.git ~/exness
+
+  # - name: Clone repo
+  # - git:
+  #   repo: 'https://github.com/flyer8/exness.git'
+  #   dest: ~/exness
+  #   clone: yes
+  #   update: yes
 
   - name: Install Helm chart Nginx
-    shell: helm install lb stable/nginx-ingress --kubeconfig /etc/rancher/k3s/k3s.yaml
+    shell: helm upgrade web ~/exness/chart.nginx --install
 
 
-  # - name: Install helm chart
+  # - name: Add Helm Stable repo
+  #   shell: helm repo add stable https://kubernetes-charts.storage.googleapis.com/
+
+  # - name: Install helm chart from a git repo specifying path
   #   helm:
   #     host: localhost
   #     chart:
-  #       name: bitnami/nginx
-  #       # version: 0.4.0
   #       source:
-  #         type: repo
-  #         location: https://charts.bitnami.com
+  #         type: git
+  #         location: https://github.com/flyer8/exness.git
+  #         path: chart.nginx
   #     state: present
-  #     name: frontend
+  #     name: nginx
   #     namespace: default
-
-
-  
