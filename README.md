@@ -1,3 +1,13 @@
+### Task:
+Deploy a Kubernetes cluster
+Containerization environment: K3s or GKE or EKS
+Linux operating system
+Web server: Nginx-any
+Backend: Php
+Balancer: any
+
+Write a script that will deploy the containerization environment, launch a web server with nginx in it, and configure the PHP backend to accept requests. The script after the launch web server and the backend should check their availability using the balancer ports.
+
 ### Deploying:
 Before deploying the project, you should to edit inventory file 'hosts', specify the appropriate IP addresses in it.
 
@@ -19,16 +29,6 @@ Components:
 - Backend: PHP application Guestbook
 - Database: Redis cluster
 ![](kubectl_get.png)
-
-### Task:
-Deploy a Kubernetes cluster
-Containerization environment: K3s or GKE or EKS
-Linux operating system
-Web server: Nginx-any
-Backend: Php
-Balancer: any
-
-Write a script that will deploy the containerization environment, launch a web server with nginx in it, and configure the PHP backend to accept requests. The script after the launch web server and the backend should check their availability using the balancer ports.
 
 ### Задача:
 Развернуть kubernetes-кластер
