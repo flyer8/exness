@@ -10,12 +10,15 @@ Then execute playbook:
 ```
 ansible-playbook -i hosts -b playbook.yml
 ```
+![](playbook_output.png)
+
 Components:
 - Orchestration: K3S Lightweight Kubernetes
 - LB: Traefik Ingress Controller
 - Frontend: Nginx Helm chart
 - Backend: PHP application Guestbook
 - Database: Redis cluster
+![](kubectl_get.png)
 
 ### Task:
 Deploy a Kubernetes cluster
