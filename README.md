@@ -25,6 +25,7 @@ Components:
 - Backend: PHP application Guestbook
 - Database: Redis cluster
 ![](kubectl_get.png)
+![](web.png)
 
 ### Задача:
 Развернуть kubernetes-кластер
