@@ -13,7 +13,7 @@
         - grpcio
       state: present
 
-  - name: Install PHP App Guestbook
+  - name: Install php App Guestbook
     shell: kubectl apply -f https://raw.githubusercontent.com/flyer8/exness/master/guestbook/guestbook-all-in-one.yaml
 
   # - name: Clone repo exness
@@ -30,18 +30,5 @@
   - name: Install Helm chart Nginx
     shell: helm upgrade web ~/exness/chart.nginx --install
 
-
-  # - name: Add Helm Stable repo
-  #   shell: helm repo add stable https://kubernetes-charts.storage.googleapis.com/
-
-  # - name: Install helm chart from a git repo specifying path
-  #   helm:
-  #     host: localhost
-  #     chart:
-  #       source:
-  #         type: git
-  #         location: https://github.com/flyer8/exness.git
-  #         path: chart.nginx
-  #     state: present
-  #     name: nginx
-  #     namespace: default
+  - name: Test conection
+    shell: helm test web
