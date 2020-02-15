@@ -11,8 +11,7 @@ Write a script that will deploy the containerization environment, launch a web s
 ### Deploying:
 - Before deploying the project, you should to edit inventory file 'hosts', specify the appropriate IP addresses in it.
 - For ingress balancer working should to specify appropriate domain name in chart.nginx/values.yaml.
-- Also appropriate A-record should be present in DNS or /etc/hosts.
-- For example: exness.lcoal
+- Also appropriate A-record should be present in DNS or /etc/hosts. For example: exness.local
 - Then execute playbook:
 ```
 ansible-playbook -i hosts -b playbook.yml
