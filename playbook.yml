@@ -1,0 +1,40 @@
+---
+- hosts: all
+  become: yes
+  tasks:
+
+  - name: Deploy k3s cluster
+    shell: curl -sfL https://get.k3s.io | sh - && export KUBECONFIG=/etc/rancher/k3s/k3s.yaml
+
+  - name: Ensure pyhelm and dependencies are installed.
+    pip:
+      name:
+        - pyhelm
+        - grpcio
+      state: present
+
+  - name: Add Helm repo
+    shell: helm repo add stable https://kubernetes-charts.storage.googleapis.com/
+
+  # - name: Set permissions for  KUBECONFIG
+  #   shell: sudo chown $USER:$USER /etc/rancher/k3s/k3s.yaml
+
+  - name: Install Helm chart Nginx
+    shell: helm install lb stable/nginx-ingress --kubeconfig /etc/rancher/k3s/k3s.yaml
+
+
+  # - name: Install helm chart
+  #   helm:
+  #     host: localhost
+  #     chart:
+  #       name: bitnami/nginx
+  #       # version: 0.4.0
+  #       source:
+  #         type: repo
+  #         location: https://charts.bitnami.com
+  #     state: present
+  #     name: frontend
+  #     namespace: default
+
+
+  
