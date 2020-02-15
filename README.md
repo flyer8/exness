@@ -1,5 +1,14 @@
-Task:
+### Deploying
+Before deploying the project, you should to edit inventory file 'hosts', specify the appropriate IP addresses in it.
+For ingress balancer working should to specify appropriate domain name in chart.nginx/values.yaml.
+Also appropriate A-record should be present in DNS or /etc/hosts.
+For example: exness.lcoal
+Then execute playbook:
+```
+ansible-playbook -i hosts -b playbook.yml
+```
 
+### Задача:
 Развернуть kubernetes-кластер
 Среда контейнеризации: K3s or GKE or EKS
 Операционная система: Linux
@@ -9,7 +18,7 @@ Backend: Php
 
 Написать скрипт, который развернет среду контейнеризации, запустит в ней веб-сервер Nginx и настроит бекенд Php для приема запросов. Скрипт после запуска веб-сервера и бекенда, должен проверить их доступность, используя порты балансировщика.
 
-
+### Task
 Deploy a Kubernetes cluster
 Containerization environment: K3s or GKE or EKS
 Linux operating system
@@ -18,8 +27,3 @@ Backend: Php
 Balancer: any
 
 Write a script that will deploy the containerization environment, launch a web server with nginx in it, and configure the PHP backend to accept requests. The script after the launch web server and the backend should check their availability using the balancer ports.
-
-NOTES:
-```
-kubectl create ns webapp && kubectl create -f kubernetes.yml -n webapp
-```
