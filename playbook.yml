@@ -25,11 +25,6 @@
   - name: Install php App Guestbook
     shell: k3s kubectl apply -f https://raw.githubusercontent.com/flyer8/exness/master/guestbook/guestbook-all-in-one.yaml
 
-  # - name: Clone repo exness
-  #   shell: |
-  #     rm -rf ~/exness || true
-  #     git clone https://github.com/flyer8/exness.git ~/exness
-
   - git:
       repo: 'https://github.com/flyer8/exness.git'
       dest: ~/exness
