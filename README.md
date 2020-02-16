@@ -16,7 +16,7 @@ Components:
 - Database: Redis cluster
 
 Before deploying the project, you should clone repository and edit Ansible inventory file `hosts`, specify the desired IP addresses in it.
-Specify appropriate domain name in `chart.nginx/values.yaml` in `serverBlock:` and `ingress:` for ingress balancing and proxing.
+Specify the expected domain name in `chart.nginx/values.yaml` in `serverBlock:` and `ingress:` for ingress balancing and proxing.
 Also appropriate A-record must be present in DNS or `/etc/hosts`. For example: `192.168.0.102	exness.local`.
 Then execute playbook:
 ```
