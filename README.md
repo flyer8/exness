@@ -23,7 +23,7 @@ Then execute playbook:
 ansible-playbook -i hosts playbook.yml
 ```
 ![](png/playbook_output.png)
-Getiing status on terget host:
+Getting status of components on terget host:
 ![](png/kubectl_get.png)
 Check web access through domain name:
 ![](png/web.png)
