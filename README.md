@@ -1,6 +1,5 @@
 ### Task:
-- Deploy a Kubernetes cluster
-- Containerization environment: K3s or GKE or EKS
+- Deploy a Kubernetes cluster: K3s or GKE or EKS
 - Linux operating system
 - Web server: Nginx-any
 - Backend: Php
