@@ -41,8 +41,7 @@
 
   - name: Test conection
     shell: helm test web
-    register: result
+    register: results
 
   - debug:
-      var: result
-      verbosity: 2
+      var: results.stdout_lines
