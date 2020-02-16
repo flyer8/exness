@@ -1,10 +1,19 @@
 ---
 - hosts: all
   become: yes
-  tasks:
 
+  environment:
+    KUBECONFIG: /etc/rancher/k3s/k3s.yaml
+
+  tasks:
   - name: Deploy k3s cluster
-    shell: curl -sfL https://get.k3s.io | sh - && export KUBECONFIG=/etc/rancher/k3s/k3s.yaml
+    shell: curl -sfL https://get.k3s.io | sh -
+
+  - name: Adding 'export KUBECONFIG=/etc/rancher/k3s/k3s.yaml' in the .bashrc
+    lineinfile: dest=/root/.bashrc line='export KUBECONFIG=/etc/rancher/k3s/k3s.yaml' insertafter='EOF' regexp='export KUBECONFIG=/etc/rancher/k3s/k3s.yaml' state=present
+
+  - name: Source the bashrc file
+    shell: '. /root/.bashrc'
 
   - name: Ensure pyhelm and dependencies are installed.
     pip:
@@ -14,7 +23,7 @@
       state: present
 
   - name: Install php App Guestbook
-    shell: kubectl apply -f https://raw.githubusercontent.com/flyer8/exness/master/guestbook/guestbook-all-in-one.yaml
+    shell: k3s kubectl apply -f https://raw.githubusercontent.com/flyer8/exness/master/guestbook/guestbook-all-in-one.yaml
 
   # - name: Clone repo exness
   #   shell: |
