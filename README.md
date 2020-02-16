@@ -8,7 +8,7 @@
 Write a script that will deploy the containerization environment, launch a web server with nginx in it, and configure the PHP backend to accept requests. The script after the launch web server and the backend should check their availability using the balancer ports.
 
 ### Deploying:
-- Before deploying the project, you should to edit inventory file `hosts`, specify the appropriate IP addresses in it.
+- Before deploying the project, you should to edit Ansible inventory file `hosts`, specify the appropriate IP addresses in it.
 - For ingress balancer working and proxing should to specify appropriate domain name in `chart.nginx/values.yaml` in `serverBlock:` and `ingress:`.
 - Also appropriate A-record should be present in DNS or /etc/hosts. For example: `192.168.0.102	exness.local`
 - Then execute playbook:
