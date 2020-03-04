@@ -1,12 +1,3 @@
-### Task:
-- Deploy a Kubernetes cluster: K3s or GKE or EKS
-- Linux operating system
-- Web server: Nginx-any
-- Backend: Php
-- Balancer: any
-
-Write a script that will deploy the containerization environment, launch a web server with nginx in it, and configure the PHP backend to accept requests. The script after the launch web server and the backend should check their availability using the balancer ports.
-
 ### Deploying:
 Components:
 - Orchestration: K3S Lightweight Kubernetes
